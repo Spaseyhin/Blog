@@ -1,0 +1,23 @@
+
+
+<div class="row">
+	<div class="col-1">
+	</div>
+
+	<div class="col-10">
+		<% @articles.reverse_each  do |article| %>
+<h1><%= article.title %></h1>
+
+<p><%= article.text   %></p>
+<%= truncate(@text , length: 20) %>
+
+<p><%= link_to "Показать", article_path(article) %> | <%= link_to "Редактировать", edit_article_path(article) %> | <%= link_to "Удалить", article_path(article), method: :delete, data: {confirm: 'Действительно удалить?' } %> <p>	
+<hr>
+<% end %>
+
+
+	</div>
+
+	<div class="col-1">
+	</div>
+</div>

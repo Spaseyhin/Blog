@@ -1,0 +1,60 @@
+
+
+
+
+<div class="row">
+  <div class="col-1">
+  </div>
+
+  <div class="col-10">
+    <h1><%= @article.title %></h1>
+
+<p><%= @article.text %></p>
+
+
+<h1>Комментарии: </h1>
+
+<%= 'Без коментариев' if @article.comments.empty? %>
+
+<% @article.comments.each do |comment|%>
+
+<p>
+  <strong>Имя: </strong>
+  <%= comment.author %>
+  <br/>
+
+  <strong>Коментарий: </strong>
+  <%= comment.body %>
+  
+<%= link_to "Удалить", article_comment_path(comment.article, comment), method: :delete %>
+  <p class="date"> Создан:  <%= comment.created_at %></p>
+
+  </p>
+
+
+<hr>
+
+<% end %>
+
+<p>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+
+  <p>
+    <div class="col-5">
+      <input class="form-control"  placeholder="Автор"<%= f.text_field :author %>
+    </div>
+  </p>
+  <p>
+    <div class="col-5">
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" 
+      placeholder="Коментарий" <%= f.text_area :body %></textarea>
+    </div>
+  </p>
+      <button type="f.submit" class="btn btn-secondary">Отправить</button>
+<% end %>
+    
+  </div>
+
+  <div class="col-1">
+  </div>
+</div>

@@ -1,0 +1,33 @@
+
+
+<div class="row">
+	<div class="col-1">
+	</div>
+
+	<div class="col-10">
+		<h1> Редактировать статью </h1>
+
+<%= form_for :article, url: article_path(@article), method: :patch do |f| %>
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</p>
+	
+	<p>
+		<%= f.label :text %>
+		<%= f.text_field :text %>
+	</p>
+
+	<p>
+			<button type="f.submit" class="btn btn-secondary">Отправить</button>
+	</p>
+	
+<% end %>
+
+
+		
+	</div>
+
+	<div class="col-1">
+	</div>
+</div>
